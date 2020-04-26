@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdlib.h>
 #define MAX 50
 
 typedef struct Stack{
@@ -20,6 +19,7 @@ void display(Stack *t){
         printf("Stack is empty \n");
         return;
     }else{
+        printf("Stack => ");
         for(int i=t->tos;i>=0;i--){
             printf("%d ",t->S[i]);
         }
