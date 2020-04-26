@@ -81,7 +81,7 @@ void main(){
 
     while(1){
         
-        printf("Enter 1:Push 2:Pop 3:StackTop 4:Display 5:Exit\n");
+        printf("Enter 1:Push 2:Pop 3:StackTop 4:Display 5:Exit \n");
         scanf("%d",&ch);
 
         if(ch==5){
@@ -104,7 +104,7 @@ void main(){
             case 4:
                 display(&x);
                 break;
-            default: printf("Invalid choice\n");
+            default: printf("Invalid choice \n");
 
         }
 
