@@ -7,7 +7,7 @@ typedef struct node{
 }node;
 
 typedef struct head{
-    struct node* start;
+    node* start;
 }head;
 
 //display all elements 
