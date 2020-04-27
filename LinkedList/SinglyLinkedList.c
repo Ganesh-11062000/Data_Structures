@@ -206,19 +206,61 @@ void search(head *t,int ele){
     }
 }
 
+void sort(head *t,int n){
+    int temp;
+    if(n==0){
+        for(node* i = t->start; i != NULL; i = i->next){
+            for(node* j = t->start; j != NULL; j = j->next){
+                if(i->data < j->data){
+                    temp = i->data;
+                    i->data = j->data;
+                    j->data = temp;
+                }
+            }
+        }
+    }else if(n==1){
+        for(node* i = t->start; i != NULL; i = i->next){
+            for(node* j = t->start; j != NULL; j = j->next){
+                if(i->data > j->data){
+                    temp = i->data;
+                    i->data = j->data;
+                    j->data = temp;
+                }
+            }
+        }
+    }
+    display(t);
+}
+
+void reverse(head *t){
+    node *curr = t->start;      //pointer to current node
+    node *prev = NULL;          //pointer to previuos node
+    node *n;                    //pointer to next node
+
+    while(curr!=NULL){
+        n = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = n;
+    }
+    t->start = prev;
+
+    display(t);
+}
+
 void main(){
     head x;
     x.start = NULL;
 
-    int ch,ele,pos;
+    int ch,ele,pos,n;
 
     while(1){
         
-        printf("Enter 1:InsertBeg 2:InsertEnd 3:deleteBeg 4:DeleteEnd 5:DeletePos 6:DeleteEle 7:Display \n");
-        printf("8:Count 9:Search 10:Exit \n");
+        printf("Enter 1:InsertBeg 2:InsertEnd 3:deleteBeg 4:DeleteEnd 5:DeletePos 6:DeleteEle \n");
+        printf("      7:Display 8:Count 9:Search 10:Sort 11:Reverse 12:Exit \n");
         scanf("%d",&ch);
 
-        if(ch==10){
+        if(ch==12){
             break;
         }
 
@@ -260,6 +302,14 @@ void main(){
                 printf("Enter an integer value - ");
                 scanf("%d",&ele);
                 search(&x,ele);
+                break;
+            case 10:
+                printf("Enter  0: Ascending 1:Descending => ");
+                scanf("%d",&n);
+                sort(&x,n);
+                break;
+            case 11:
+                reverse(&x);
                 break;
             default: printf("Invalid choice \n");
 
