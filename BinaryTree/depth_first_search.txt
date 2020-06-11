@@ -1,0 +1,31 @@
+Depth First Search - 
+
+(V:visit , L:left R:right)
+preOrder => VLR
+inOrder => LVR
+postOrder => LRV
+
+1) preOrder Traversal
+
+function preOrder(Node node)
+1. if node != null then
+2.   print node.data
+3.   preOrder(node.left)
+4.   preOrder(node.right)
+
+2) inOrder Traversal
+
+function inOrder(Node node)
+1. if node != null then
+2.   inOrder(node.left)
+3.   print node.data
+4.   inOrder(node.right)
+
+3) postOrder Traversal
+
+function postOrder(Node node)
+1. if node != null then
+2.   postOrder(node.left)
+3.   postOrder(node.right)
+4.   print node.data
+
