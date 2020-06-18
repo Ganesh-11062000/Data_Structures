@@ -1,0 +1,110 @@
+// Like variables even functions could be static or non-static
+
+// Let's see the scenerio
+// type 1 : Within Same class
+// type 2 : Within Other class
+
+// we have 4 cases in each of these 2 types !
+
+// type 1 =>
+
+class A {
+
+    // case 1 : To call non-static function in non-static function ( Direct )
+    void f1(){
+
+    }
+
+    void f2(){
+        f1();
+    }
+
+    // case 2 : To call non-static function in static function (using Object)
+    void f1(){
+
+    }
+
+    static void f2(){
+        A a1 = new A();
+        a1.f2();
+    }
+
+    // case 3 : To call static function in non-static functions (using className)
+    static void f1(){
+
+    }
+
+    void f2(){
+        A.f1();
+    }
+
+    // case 4 : To call static function in static function ( Direct )
+    static void f1(){
+
+    }
+
+    static void f2(){
+        f1();
+    }
+}
+
+// type 2 =>
+
+// case 1 : To call non-static function in non-static function (using Object)
+class A {
+    void f1(){
+
+    }
+}
+
+class B {
+    void f2(){
+        A a1 = new A();
+        a1.f1();
+    }
+}
+
+
+// case 2 : to call non-static function in static function (using Object)
+class A {
+    void f1(){
+
+    }
+}
+
+class B {
+    static void f2(){
+        A a1 = new A();
+        a1.f1();
+    }
+}
+
+
+// case  3 : To call static function in non-static function (using className)
+class A {
+    static void f1(){
+
+    }
+}
+
+class B {
+    void f2(){
+        A.f1();
+    }
+}
+
+
+// class 4 : To call static function in static function (using className)
+class A {
+    static void f1(){
+
+    }
+}
+
+class B {
+    static void f2(){
+        A.f1();
+    }
+}
+
+
